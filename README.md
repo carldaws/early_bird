@@ -32,7 +32,26 @@ And migrate the database:
 $ bin/rails db:migrate
 ```
 
-EarlyBird requires both new and show views:
+EarlyBird requires an application layout, new and show views:
+```ruby
+# app/views/layouts/early_bird/application.html.erb
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your app name here</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    "early_bird/application", media: "all" %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
+```
+
 ```ruby
 # app/views/early_bird/submissions/new.html.erb
 <%= form_with(model: @submission) do |form| %>
