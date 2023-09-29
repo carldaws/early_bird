@@ -54,10 +54,16 @@ Then mount the engine in your routes.rb file:
 mount EarlyBird::Engine => "/"
 ```
 
-And (optionally) prevent access to the rest of the app while you're building it:
+In your application_controller.rb file, define an `authenticate_user!` method, which EarlyBird skips (to allow access to the waitlist while preventing access to the rest of the app):
 ```ruby
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: "dev", password: "secret"
+  before_action :authenticate_user!
+
+  private 
+
+  def authenticate_user!
+    http_basic_authenticate_with name: "dev", password: "secret"
+  end
 end
 ``` 
 
