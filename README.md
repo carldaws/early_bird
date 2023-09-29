@@ -2,6 +2,9 @@
 
 A very simple Gem to add waitlist functionality to a WIP Rails app.
 
+## Future Features
+I plan to add automated invite codes in the near future
+
 ## Usage
 Follow the installation instructions and you're good to go!
 
@@ -32,26 +35,7 @@ And migrate the database:
 $ bin/rails db:migrate
 ```
 
-EarlyBird requires an application layout, new and show views:
-```ruby
-# app/views/layouts/early_bird/application.html.erb
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Your app name here</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag    "early_bird/application", media: "all" %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
-```
-
+EarlyBird requires new and show views to be implemented in your app:
 ```ruby
 # app/views/early_bird/submissions/new.html.erb
 <%= form_with(model: @submission) do |form| %>

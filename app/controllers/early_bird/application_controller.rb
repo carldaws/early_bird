@@ -1,4 +1,2 @@
-module EarlyBird
-  class ApplicationController < ActionController::Base
-  end
+class EarlyBird::ApplicationController < ::ApplicationController
 end
